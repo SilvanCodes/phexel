@@ -1,0 +1,287 @@
+:root {
+    /* Ratios for maintaining visual consistency. */
+    --ratio: 2.71828;
+    --s-5: calc(var(--s-4) / var(--ratio));
+    --s-4: calc(var(--s-3) / var(--ratio));
+    --s-3: calc(var(--s-2) / var(--ratio));
+    --s-2: calc(var(--s-1) / var(--ratio));
+    --s-1: calc(var(--s0) / var(--ratio));
+    --s0: 1rem;
+    --s1: calc(var(--s0) * var(--ratio));
+    --s2: calc(var(--s1) * var(--ratio));
+    --s3: calc(var(--s2) * var(--ratio));
+    --s4: calc(var(--s3) * var(--ratio));
+    --s5: calc(var(--s4) * var(--ratio));
+
+    /* Zero value*/
+    --zero: 0;
+
+    /* Measure width (characters per line) */
+    --measure: 60ch;
+}
+
+* {
+    /* In general calculate from border-box. */
+    box-sizing: border-box;
+
+    /* Clear default padding and margin. */
+    margin: 0;
+    padding: 0;
+
+    /* In general cap to nicely readable width. */
+    max-width: var(--measure);
+}
+
+/* Exceptions made to above max-width rule. */
+html,
+body,
+div,
+header,
+nav,
+main,
+footer {
+    max-width: none;
+}
+
+/* BOX-LAYOUT */
+.elc-box {
+    --box-padding: var(--s0);
+    --box-border: var(--s-5);
+    padding: var(--box-padding);
+    border: var(--box-border) solid;
+    /* Required because default for custom elements is inline. */
+    display: block;
+}
+
+.elc-box * {
+    color: inherit;
+}
+
+/* CENTER-LAYOUT */
+.elc-center {
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* CLUSTER-LAYOUT */
+/* 
+   * Needs wrapper element inside container.
+   */
+.elc-cluster {
+    --cluster-margin: var(--s0);
+    --cluster-justify-content: flex-start;
+    overflow: hidden;
+}
+
+.elc-cluster>* {
+    display: flex;
+    flex-wrap: wrap;
+    margin: calc(var(--cluster-margin) / 2 * -1);
+    justify-content: var(--cluster-justify-content);
+    align-items: center;
+}
+
+.elc-cluster>*>* {
+    margin: calc(var(--cluster-margin) / 2);
+}
+
+/* COVER-LAYOUT */
+.elc-cover {
+    --cover-padding: var(--s0);
+    --cover-margin: var(--s0);
+    --cover-min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: var(--cover-min-height);
+    padding: var(--cover-padding);
+}
+
+.elc-cover>* {
+    margin-top: var(--cover-margin);
+    margin-bottom: var(--cover-margin);
+}
+
+/* If just on child exists, it is main element. */
+.elc-cover> :only-child {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+/* If two children exist, it is heading and main elements. */
+.elc-cover> :last-child:nth-child(2) {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.elc-cover> :first-child:nth-last-child(2) {
+    margin-top: 0;
+}
+
+/* If three children exist, it is heading, main and footer elements. */
+.elc-cover> :nth-child(2):nth-last-child(2) {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.elc-cover> :first-child:nth-last-child(3) {
+    margin-top: 0;
+}
+
+.elc-cover> :last-child::nth-child(3) {
+    margin-bottom: 0;
+}
+
+/* FRAME-LAYOUT */
+.elc-frame {
+    --frame-n: 9;
+    --frame-d: 16;
+    padding-bottom: calc(var(--frame-n) / var(--frame-d) * 100%);
+    position: relative;
+}
+
+.elc-frame>* {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.elc-frame>img,
+.elc-frame>video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* GRID-LAYOUT */
+.elc-grid {
+    --grid-grid-gap: var(--s0);
+    --grid-column-min-width: var(--s5);
+    display: grid;
+    grid-gap: var(--grid-grid-gap);
+}
+
+.elc-grid {
+    grid-template-columns: repeat(auto-fit,
+            minmax(min(var(--grid-column-min-width), 100%), 1fr));
+}
+
+/* IMPOSTER-LAYOUT */
+.elc-imposter {
+    --imposter-position: absolute;
+    --imposter-margin: var(--s0);
+    position: var(--imposter-position);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.elc-imposter> :first-child {
+    overflow: auto;
+    max-width: calc(100% - (var(--imposter-margin) * 2));
+    max-height: calc(100% - (var(--imposter-margin) * 2));
+}
+
+/* REEL-LAYOUT */
+.elc-reel {
+    --reel-height: auto;
+    --reel-margin: var(--s0);
+    --reel-flex-basis: auto;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: var(--reel-height);
+}
+
+.elc-reel>* {
+    flex-basis: var(--reel-flex-basis);
+}
+
+.elc-reel>*+* {
+    margin-left: var(--reel-margin);
+}
+
+.elc-reel>img {
+    height: 100%;
+    flex-basis: auto;
+    width: auto;
+}
+
+/* SIDEBAR-LAYOUT */
+.elc-sidebar {
+    --sidebar-flex-basis: initial;
+    --sidebar-min-width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.elc-sidebar> :first-child {
+    flex-basis: var(--sidebar-flex-basis);
+    flex-grow: 1;
+}
+
+.elc-sidebar> :last-child {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-width: var(--sidebar-min-width);
+}
+
+/* STACK-LAYOUT */
+/* 
+   * Not directly nestable due to CSS variable override of outer stack.
+   * Use one wrapping element between those with .elc-stack class.
+   */
+.elc-stack {
+    --stack-margin: var(--s0);
+    --stack-split: var(--zero);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    max-width: 100%;
+}
+
+.elc-stack> :first-child:nth-last-child(2) {
+    margin-bottom: var(--stack-split);
+}
+
+.elc-stack>*+* {
+    margin-top: var(--stack-margin);
+}
+
+.elc-stack:only-child {
+    height: 100%;
+}
+
+/* SWITCHER-LAYOUT */
+/* 
+   * Needs wrapper element inside container.
+   */
+.elc-switcher {
+    --switcher-margin: var(--s0);
+    --switcher-min-width: var(--measure);
+}
+
+.elc-switcher>* {
+    display: flex;
+    flex-wrap: wrap;
+    margin: calc(var(--switcher-margin) / 2 * -1);
+}
+
+.elc-switcher>*>* {
+    flex-grow: 1;
+    flex-basis: calc((var(--switcher-min-width) - (100% - var(--switcher-margin))) * 999);
+    margin: calc(var(--switcher-margin) / 2);
+}
+
+.elc-switcher>*> :nth-child(2):nth-last-child(2) {
+    flex-grow: 2;
+}
