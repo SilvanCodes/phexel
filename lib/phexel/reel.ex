@@ -4,9 +4,9 @@ defmodule Phexel.Reel do
   import Phexel, only: [put_configuration: 2]
 
   @configuration [
-    :"reel-height",
-    :"reel-margin",
-    :"reel-flex-basis"
+    :"reel-block-size",
+    :"reel-padding",
+    :"reel-gap"
   ]
 
   def reel(assigns) do

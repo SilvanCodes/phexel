@@ -173,26 +173,29 @@ img {
 
 /* REEL-LAYOUT */
 .elc-reel {
-    --reel-height: auto;
-    --reel-margin: var(--s0);
-    --reel-flex-basis: auto;
+    --reel-block-size: auto;
+    --reel-padding: var(--s0);
+    --reel-gap: var(--s0);
     display: flex;
     overflow-x: auto;
-    overflow-y: hidden;
-    height: var(--reel-height);
+    block-size: var(--reel-block-size);
+    gap: var(--reel-gap);
 }
 
 .elc-reel>* {
-    flex-basis: var(--reel-flex-basis);
+    margin-block: var(--reel-padding);
 }
 
-.elc-reel>*+* {
-    margin-left: var(--reel-margin);
+.elc-reel> :first-child {
+    margin-inline-start: var(--reel-padding);
+}
+
+.elc-reel>:last-child {
+    margin-inline-end: var(--reel-padding);
 }
 
 .elc-reel>img {
-    height: 100%;
-    flex-basis: auto;
+    block-size: 100%;
     width: auto;
 }
 
