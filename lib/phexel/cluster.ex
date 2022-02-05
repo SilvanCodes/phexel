@@ -3,7 +3,11 @@ defmodule Phexel.Cluster do
 
   import Phexel, only: [put_configuration: 2]
 
-  @configuration [:"cluster-margin", :"cluster-justify-content"]
+  @configuration [
+    :"cluster-gap",
+    :"cluster-justify-content",
+    :"cluster-align-items"
+  ]
 
   def cluster(assigns) do
     assigns =
@@ -12,10 +16,7 @@ defmodule Phexel.Cluster do
 
     ~H"""
       <div class="elc-cluster" {@configuration}>
-        <!--- This additional wrapping div is required as the layout is more complex. --->
-        <div>
-          <%= render_slot(@inner_block) %>
-        </div>
+        <%= render_slot(@inner_block) %>
       </div>
     """
   end

@@ -67,25 +67,15 @@ footer {
 }
 
 /* CLUSTER-LAYOUT */
-/* 
- * Needs wrapper element inside container.
- */
 .elc-cluster {
-    --cluster-margin: var(--s0);
+    --cluster-gap: var(--s0);
     --cluster-justify-content: flex-start;
-    overflow: hidden;
-}
-
-.elc-cluster>* {
+    --cluster-align-items: center;
     display: flex;
     flex-wrap: wrap;
-    margin: calc(var(--cluster-margin) / 2 * -1);
+    gap: var(--cluster-gap);
     justify-content: var(--cluster-justify-content);
-    align-items: center;
-}
-
-.elc-cluster>*>* {
-    margin: calc(var(--cluster-margin) / 2);
+    align-items: var(--cluster-align-items);
 }
 
 /* COVER-LAYOUT */
