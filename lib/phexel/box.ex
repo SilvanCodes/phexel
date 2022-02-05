@@ -3,7 +3,7 @@ defmodule Phexel.Box do
 
   import Phexel, only: [put_configuration: 2]
 
-  @configuration [:"box-padding", :"box-border"]
+  @configuration [:"box-padding", :"box-border-width"]
 
   def box(assigns) do
     assigns =
