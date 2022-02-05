@@ -67,8 +67,8 @@ footer {
 
 /* CLUSTER-LAYOUT */
 /* 
-   * Needs wrapper element inside container.
-   */
+ * Needs wrapper element inside container.
+ */
 .elc-cluster {
     --cluster-margin: var(--s0);
     --cluster-justify-content: flex-start;
@@ -235,11 +235,14 @@ footer {
 
 /* STACK-LAYOUT */
 /* 
-   * Not directly nestable due to CSS variable override of outer stack.
-   * Use one wrapping element between those with .elc-stack class.
-   */
+ * Not directly nestable due to CSS variable override of outer stack.
+ * Use one wrapping element between those with .elc-stack class.
+ */
 .elc-stack {
     --stack-margin: var(--s0);
+    /* Should be set to 'auto' when splitting is desired. 
+     * Splitting occurs when the stack has exactly two elements.
+     */
     --stack-split: var(--zero);
     display: flex;
     flex-direction: column;
@@ -260,8 +263,8 @@ footer {
 
 /* SWITCHER-LAYOUT */
 /* 
-   * Needs wrapper element inside container.
-   */
+ * Needs wrapper element inside container.
+ */
 .elc-switcher {
     --switcher-margin: var(--s0);
     --switcher-min-width: var(--measure);
