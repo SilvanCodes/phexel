@@ -193,7 +193,7 @@ img {
 
 .elc-reel>img {
     block-size: 100%;
-    width: auto;
+    inline-size: auto;
 }
 
 /* SIDEBAR-LAYOUT */
