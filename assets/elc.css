@@ -160,15 +160,12 @@ img {
     --imposter-position: absolute;
     --imposter-margin: var(--s0);
     position: var(--imposter-position);
-    top: 50%;
-    left: 50%;
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
     transform: translate(-50%, -50%);
-}
-
-.elc-imposter> :first-child {
+    max-inline-size: calc(100% - 2 * var(--imposter-margin));
+    max-block-size: calc(100% - 2 * var(--imposter-margin));
     overflow: auto;
-    max-width: calc(100% - (var(--imposter-margin) * 2));
-    max-height: calc(100% - (var(--imposter-margin) * 2));
 }
 
 /* REEL-LAYOUT */
