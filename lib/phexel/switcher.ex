@@ -4,8 +4,8 @@ defmodule Phexel.Switcher do
   import Phexel, only: [put_configuration: 2]
 
   @configuration [
-    :"switcher-margin",
-    :"switcher-min-width"
+    :"switcher-gap",
+    :"switcher-threshold"
   ]
 
   def switcher(assigns) do
@@ -15,10 +15,7 @@ defmodule Phexel.Switcher do
 
     ~H"""
         <div class="elc-switcher" {@configuration}>
-        <!--- This additional wrapping div is required as the layout is more complex. --->
-          <div>
-            <%= render_slot(@inner_block) %>
-          </div>
+          <%= render_slot(@inner_block) %>
         </div>
     """
   end

@@ -264,26 +264,16 @@ img {
 }
 
 /* SWITCHER-LAYOUT */
-/* 
- * Needs wrapper element inside container.
- */
 .elc-switcher {
-    --switcher-margin: var(--s0);
-    --switcher-min-width: var(--measure);
+    --switcher-gap: var(--s0);
+    --switcher-threshold: var(--measure);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--switcher-gap);
+
 }
 
 .elc-switcher>* {
-    display: flex;
-    flex-wrap: wrap;
-    margin: calc(var(--switcher-margin) / 2 * -1);
-}
-
-.elc-switcher>*>* {
     flex-grow: 1;
-    flex-basis: calc((var(--switcher-min-width) - (100% - var(--switcher-margin))) * 999);
-    margin: calc(var(--switcher-margin) / 2);
-}
-
-.elc-switcher>*> :nth-child(2):nth-last-child(2) {
-    flex-grow: 2;
+    flex-basis: calc((var(--switcher-threshold) - 100%) * 999);
 }
