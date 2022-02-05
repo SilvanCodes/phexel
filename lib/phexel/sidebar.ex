@@ -5,7 +5,9 @@ defmodule Phexel.Sidebar do
 
   @configuration [
     :"sidebar-flex-basis",
-    :"sidebar-min-width"
+    :"sidebar-min-inline-size",
+    :"sidebar-gap",
+    :"sidebar-flex-direction"
   ]
 
   def sidebar(assigns) do

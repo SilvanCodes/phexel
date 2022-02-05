@@ -207,10 +207,17 @@ footer {
 
 /* SIDEBAR-LAYOUT */
 .elc-sidebar {
+    /* Flex basis for sidebar. */
     --sidebar-flex-basis: initial;
-    --sidebar-min-width: 50%;
+    /* Minimum inline size of main content */
+    --sidebar-min-inline-size: 50%;
+    --sidebar-gap: var(--s0);
+    /* Can be set to 'row-reverse' to switch sidebar and main content. */
+    --sidebar-flex-direction: row;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: var(--sidebar-flex-direction);
+    gap: var(--sidebar-gap);
 }
 
 .elc-sidebar> :first-child {
@@ -221,7 +228,7 @@ footer {
 .elc-sidebar> :last-child {
     flex-basis: 0;
     flex-grow: 999;
-    min-width: var(--sidebar-min-width);
+    min-inline-size: var(--sidebar-min-inline-size);
 }
 
 /* STACK-LAYOUT */
