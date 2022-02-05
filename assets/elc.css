@@ -43,6 +43,10 @@ footer {
     max-inline-size: none;
 }
 
+img {
+    max-block-size: 100%;
+}
+
 /* BOX-LAYOUT */
 .elc-box {
     --box-padding: var(--s0);
