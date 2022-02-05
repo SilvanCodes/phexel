@@ -29,7 +29,7 @@
     padding: 0;
 
     /* In general cap to nicely readable width. */
-    max-width: var(--measure);
+    max-inline-size: var(--measure);
 }
 
 /* Exceptions made to above max-width rule. */
@@ -40,7 +40,7 @@ header,
 nav,
 main,
 footer {
-    max-width: none;
+    max-inline-size: none;
 }
 
 /* BOX-LAYOUT */
