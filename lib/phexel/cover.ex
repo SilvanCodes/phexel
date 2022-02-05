@@ -6,7 +6,7 @@ defmodule Phexel.Cover do
   @configuration [
     :"cover-padding",
     :"cover-margin",
-    :"cover-min-height"
+    :"cover-min-block-size"
   ]
 
   def cover(assigns) do

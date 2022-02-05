@@ -86,46 +86,42 @@ img {
 .elc-cover {
     --cover-padding: var(--s0);
     --cover-margin: var(--s0);
-    --cover-min-height: 100%;
+    --cover-min-block-size: 100%;
     display: flex;
     flex-direction: column;
-    min-height: var(--cover-min-height);
+    min-block-size: var(--cover-min-block-size);
     padding: var(--cover-padding);
 }
 
 .elc-cover>* {
-    margin-top: var(--cover-margin);
-    margin-bottom: var(--cover-margin);
+    margin-block: var(--cover-margin);
 }
 
 /* If just on child exists, it is main element. */
 .elc-cover> :only-child {
-    margin-top: auto;
-    margin-bottom: auto;
+    margin-block: auto;
 }
 
 /* If two children exist, it is heading and main elements. */
 .elc-cover> :last-child:nth-child(2) {
-    margin-top: auto;
-    margin-bottom: auto;
+    margin-block: auto;
 }
 
 .elc-cover> :first-child:nth-last-child(2) {
-    margin-top: 0;
+    margin-block-start: 0;
 }
 
 /* If three children exist, it is heading, main and footer elements. */
 .elc-cover> :nth-child(2):nth-last-child(2) {
-    margin-top: auto;
-    margin-bottom: auto;
+    margin-block: auto;
 }
 
 .elc-cover> :first-child:nth-last-child(3) {
-    margin-top: 0;
+    margin-block-start: 0;
 }
 
 .elc-cover> :last-child::nth-child(3) {
-    margin-bottom: 0;
+    margin-block-end: 0;
 }
 
 /* FRAME-LAYOUT */
