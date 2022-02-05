@@ -246,11 +246,10 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    max-width: 100%;
 }
 
 .elc-stack> :first-child:nth-last-child(2) {
-    margin-bottom: var(--stack-split);
+    margin-block-end: var(--stack-split);
 }
 
 .elc-stack>*+* {
@@ -258,7 +257,7 @@ footer {
 }
 
 .elc-stack:only-child {
-    height: 100%;
+    block-size: 100%;
 }
 
 /* SWITCHER-LAYOUT */
