@@ -264,3 +264,12 @@ img {
     flex-grow: 1;
     flex-basis: calc((var(--switcher-threshold) - 100%) * 999);
 }
+
+/* ICON */
+/* Gives icons the size of a box with edge length of lowercase letter 'x'.
+ * As it is square, ther is no need for logical properties.
+ */
+.elc-icon {
+    width: 1ex;
+    height: 1ex;
+}
