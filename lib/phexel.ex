@@ -21,14 +21,22 @@ defmodule Phexel do
   end
 
   def put_configuration(assigns, keys) when is_list(keys) do
+    style = extract_configuration_styles(assigns, keys) <> extract_literal_styles(assigns)
+
     assigns
-    |> Map.put(:configuration, style: extract_configuration(assigns, keys))
+    |> Map.put(:configuration, style: style)
   end
 
-  defp extract_configuration(assigns, keys) do
+  defp extract_configuration_styles(assigns, keys) do
     for {key, value} <- assigns,
         key in keys,
         into: "",
         do: "--#{key}: #{var(value)};"
   end
+
+  defp extract_literal_styles(%{style: literal_styles}) do
+    literal_styles
+  end
+
+  defp extract_literal_styles(%{}), do: ""
 end
