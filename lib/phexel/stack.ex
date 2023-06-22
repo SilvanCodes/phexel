@@ -1,22 +1,21 @@
 defmodule Phexel.Stack do
   use Phoenix.Component
 
-  import Phexel, only: [put_configuration: 2]
+  import Phexel, only: [base: 3]
 
-  @configuration [:"stack-margin", :"stack-split"]
+  @allowed_configuration_keys [
+    :"stack-margin",
+    :"stack-split"
+  ]
+
+  attr(:"stack-margin", :string)
+  attr(:"stack-split", :string)
+  attr(:tag, :string, default: "div")
+  attr(:rest, :global)
+
+  slot(:inner_block, required: true)
 
   def stack(assigns) do
-    assigns =
-      assigns
-      |> put_configuration(@configuration)
-
-    ~H"""
-      <!--- This additional wrapping div is required to prevent unwanted CSS-Variable overwrites when directly nesting stacks. --->
-      <div>
-        <div class="elc-stack" {@configuration}>
-          <%= render_slot(@inner_block) %>
-        </div>
-      </div>
-    """
+    base(assigns, @allowed_configuration_keys, "elc-stack")
   end
 end

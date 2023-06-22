@@ -1,22 +1,21 @@
 defmodule Phexel.Frame do
   use Phoenix.Component
 
-  import Phexel, only: [put_configuration: 2]
+  import Phexel, only: [base: 3]
 
-  @configuration [
+  @allowed_configuration_keys [
     :"frame-n",
     :"frame-d"
   ]
 
-  def frame(assigns) do
-    assigns =
-      assigns
-      |> put_configuration(@configuration)
+  attr(:"frame-n", :string)
+  attr(:"frame-d", :string)
+  attr(:tag, :string, default: "div")
+  attr(:rest, :global)
 
-    ~H"""
-        <div class="elc-frame" {@configuration}>
-          <%= render_slot(@inner_block) %>
-        </div>
-    """
+  slot(:inner_block, required: true)
+
+  def frame(assigns) do
+    base(assigns, @allowed_configuration_keys, "elc-frame")
   end
 end

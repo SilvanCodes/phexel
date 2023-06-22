@@ -1,23 +1,23 @@
 defmodule Phexel.Cover do
   use Phoenix.Component
 
-  import Phexel, only: [put_configuration: 2]
+  import Phexel, only: [base: 3]
 
-  @configuration [
+  @allowed_configuration_keys [
     :"cover-padding",
     :"cover-margin",
     :"cover-min-block-size"
   ]
 
-  def cover(assigns) do
-    assigns =
-      assigns
-      |> put_configuration(@configuration)
+  attr(:"cover-padding", :string)
+  attr(:"cover-margin", :string)
+  attr(:"cover-min-block-size", :string)
+  attr(:tag, :string, default: "div")
+  attr(:rest, :global)
 
-    ~H"""
-        <div class="elc-cover" {@configuration}>
-          <%= render_slot(@inner_block) %>
-        </div>
-    """
+  slot(:inner_block, required: true)
+
+  def cover(assigns) do
+    base(assigns, @allowed_configuration_keys, "elc-cover")
   end
 end

@@ -1,22 +1,21 @@
 defmodule Phexel.Imposter do
   use Phoenix.Component
 
-  import Phexel, only: [put_configuration: 2]
+  import Phexel, only: [base: 3]
 
-  @configuration [
+  @allowed_configuration_keys [
     :"imposter-position",
     :"imposter-margin"
   ]
 
-  def imposter(assigns) do
-    assigns =
-      assigns
-      |> put_configuration(@configuration)
+  attr(:"imposter-position", :string)
+  attr(:"imposter-margin", :string)
+  attr(:tag, :string, default: "div")
+  attr(:rest, :global)
 
-    ~H"""
-        <div class="elc-imposter" {@configuration}>
-          <%= render_slot(@inner_block) %>
-        </div>
-    """
+  slot(:inner_block, required: true)
+
+  def imposter(assigns) do
+    base(assigns, @allowed_configuration_keys, "elc-imposter")
   end
 end

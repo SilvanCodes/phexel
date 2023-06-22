@@ -1,23 +1,23 @@
 defmodule Phexel.Reel do
   use Phoenix.Component
 
-  import Phexel, only: [put_configuration: 2]
+  import Phexel, only: [base: 3]
 
-  @configuration [
+  @allowed_configuration_keys [
     :"reel-block-size",
     :"reel-padding",
     :"reel-gap"
   ]
 
-  def reel(assigns) do
-    assigns =
-      assigns
-      |> put_configuration(@configuration)
+  attr(:"reel-block-size", :string)
+  attr(:"reel-padding", :string)
+  attr(:"reel-gap", :string)
+  attr(:tag, :string, default: "div")
+  attr(:rest, :global)
 
-    ~H"""
-        <div class="elc-reel" {@configuration}>
-          <%= render_slot(@inner_block) %>
-        </div>
-    """
+  slot(:inner_block, required: true)
+
+  def reel(assigns) do
+    base(assigns, @allowed_configuration_keys, "elc-reel")
   end
 end

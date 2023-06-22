@@ -1,19 +1,21 @@
 defmodule Phexel.Box do
   use Phoenix.Component
 
-  import Phexel, only: [put_configuration: 2]
+  import Phexel, only: [base: 3]
 
-  @configuration [:"box-padding", :"box-border-width"]
+  @allowed_configuration_keys [
+    :"box-padding",
+    :"box-border-width"
+  ]
+
+  attr(:"box-padding", :string, required: false)
+  attr(:"box-border-width", :string, required: false)
+  attr(:tag, :string, default: "div")
+  attr(:rest, :global)
+
+  slot(:inner_block, required: true)
 
   def box(assigns) do
-    assigns =
-      assigns
-      |> put_configuration(@configuration)
-
-    ~H"""
-      <div class="elc-box" {@configuration}>
-        <%= render_slot(@inner_block) %>
-      </div>
-    """
+    base(assigns, @allowed_configuration_keys, "elc-box")
   end
 end

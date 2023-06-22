@@ -1,23 +1,23 @@
 defmodule Phexel.Cluster do
   use Phoenix.Component
 
-  import Phexel, only: [put_configuration: 2]
+  import Phexel, only: [base: 3]
 
-  @configuration [
+  @allowed_configuration_keys [
     :"cluster-gap",
     :"cluster-justify-content",
     :"cluster-align-items"
   ]
 
-  def cluster(assigns) do
-    assigns =
-      assigns
-      |> put_configuration(@configuration)
+  attr(:"cluster-gap", :string)
+  attr(:"cluster-justify-content", :string)
+  attr(:"cluster-align-items", :string)
+  attr(:tag, :string, default: "div")
+  attr(:rest, :global)
 
-    ~H"""
-      <div class="elc-cluster" {@configuration}>
-        <%= render_slot(@inner_block) %>
-      </div>
-    """
+  slot(:inner_block, required: true)
+
+  def cluster(assigns) do
+    base(assigns, @allowed_configuration_keys, "elc-cluster")
   end
 end

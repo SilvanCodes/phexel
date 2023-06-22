@@ -1,19 +1,19 @@
 defmodule Phexel.Center do
   use Phoenix.Component
 
-  import Phexel, only: [put_configuration: 2]
+  import Phexel, only: [base: 3]
 
-  @configuration [:"center-padding-inline"]
+  @allowed_configuration_keys [
+    :"center-padding-inline"
+  ]
+
+  attr(:"center-padding-inline", :string, required: false)
+  attr(:tag, :string, default: "div")
+  attr(:rest, :global)
+
+  slot(:inner_block, required: true)
 
   def center(assigns) do
-    assigns =
-      assigns
-      |> put_configuration(@configuration)
-
-    ~H"""
-      <div class="elc-center" {@configuration}>
-        <%= render_slot(@inner_block) %>
-      </div>
-    """
+    base(assigns, @allowed_configuration_keys, "elc-center")
   end
 end
