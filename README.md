@@ -31,7 +31,57 @@ Assuming a standard Phoenix project structure, add the following line to your `a
 @import "../../deps/phexel/assets/elc.css";
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/phexel>.
+## Usage
 
+Phexel provides a `Phoenix.Component` for each layout from [Every Layout](https://every-layout.dev). You can use these components by importing `Phexel` into your LiveView or LiveComponent like this:
+
+```elixir
+defmodule Web.Component.TodoList do
+  use Phoenix.LiveComponent
+  import Phexel
+
+  def todo_list(assigns) do
+    ~H"""
+    <.box>
+      <.stack>
+        <form phx-change="update">
+          <%= for todo <- @todos do %>
+          <.cluster>
+            <input type="checkbox" id={"todo-#{todo.id}"} name={"todo-#{todo.id}"} value={todo.id} checked={todo.done?}>
+            <label for={"todo-#{todo.id}"}><%= todo.text %></label>
+            <button phx-click="delete-todo" phx-value-todo={todo.id}><i class="fa-solid fa-trash"></i></button>
+          </.cluster>
+          <% end %>
+        </form>
+        <button phx-click="add-todo">
+          <%# TODO: implement "The Icon" from Every Layout instead %>
+          <.cluster>
+            <i class="fa-solid fa-square-plus"></i>
+            <span>Add Todo</span>
+          </.cluster>
+        </button>
+      </.stack>
+    </.box>
+    """
+  end
+end
+```
+
+## Components
+
+| [Every Layout](https://every-layout.dev) Component | Phexel Component  |
+| -------------------------------------------------- | ----------------- |
+| The Stack                                          | `<.stack>`        |
+| The Box                                            | `<.box>`          |
+| The Center                                         | `<.center>`       |
+| The Cluster                                        | `<.cluster>`      |
+| The Sidebar                                        | `<.sidebar>`      |
+| The Switcher                                       | `<.switcher>`     |
+| The Cover                                          | `<.cover>`        |
+| The Grid                                           | `<.grid>`         |
+| The Frame                                          | `<.frame>`        |
+| The Reel                                           | `<.reel>`         |
+| The Imposter                                       | `<.imposter>`     |
+| The Icon                                           | _Not implemented_ |
+
+Please refer to [Every Layout](https://every-layout.dev) if you want to learn more about when to use which component.
