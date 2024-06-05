@@ -1,0 +1,32 @@
+{
+    "name": "Development Configuration",
+    "dockerComposeFile": [
+        // In case you want to startup some infrastructure service
+        // "../docker-compose.yml",
+        "docker-compose.yml"
+    ],
+    "service": "development",
+    "workspaceFolder": "/workspace",
+    "remoteUser": "gitpod",
+    // In case anything is supposed to run once, initially.
+    // "onCreateCommand": "bash -i -c 'mix assets.setup'",
+    // "updateContentCommand": "bash -i -c 'direnv allow && mix do deps.get, compile --force && MIX_ENV=test mix compile --force'",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "JakeBecker.elixir-ls",
+                "phoenixframework.phoenix",
+                "me-dutour-mathieu.vscode-github-actions",
+                "eamodio.gitlens",
+                "ms-azuretools.vscode-docker",
+                "bungcip.better-toml"
+            ],
+            "settings": {
+                "gitlens": {
+                    "showWelcomeOnInstall": false,
+                    "showWhatsNewAfterUpgrades": false
+                }
+            }
+        }
+    }
+}
