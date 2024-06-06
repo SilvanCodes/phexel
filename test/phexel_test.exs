@@ -1,5 +1,6 @@
 defmodule PhexelTest do
   use ExUnit.Case
+
   doctest Phexel
 
   describe "Has configuration to parse" do

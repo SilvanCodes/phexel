@@ -1,15 +1,14 @@
 defmodule Phexel do
-  import Phoenix.Component, only: [sigil_H: 2, render_slot: 1, dynamic_tag: 1, assign: 2]
-
   @moduledoc """
   This module contains layout components as they are described here: https://every-layout.dev
   The corresponding styles are here: https://elc.silvan.codes/elc.css
   """
 
+  import Phoenix.Component, only: [sigil_H: 2, render_slot: 1, dynamic_tag: 1, assign: 2]
+
   def base(assigns, allowed_configuration_keys, type) do
     assigns =
-      assigns
-      |> assign(
+      assign(assigns,
         rest:
           assigns.rest
           |> Map.put(:style, build_configuration_style(assigns, allowed_configuration_keys))

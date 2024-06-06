@@ -1,4 +1,5 @@
 defmodule Phexel.Frame do
+  @moduledoc false
   use Phoenix.Component
 
   import Phexel, only: [base: 3]

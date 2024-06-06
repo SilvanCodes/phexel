@@ -21,7 +21,8 @@ defmodule Phexel.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:phoenix_live_view, "~> 0.19"}
+      {:phoenix_live_view, "~> 0.20"},
+      {:styler, "~> 1.0.0-rc.0", only: [:dev, :test], runtime: false}
     ]
   end
 end
