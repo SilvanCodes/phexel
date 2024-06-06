@@ -18,7 +18,5 @@ defmodule Phexel.Cover do
 
   slot(:inner_block, required: true)
 
-  def cover(assigns) do
-    base(assigns, @allowed_configuration_keys, "elc-cover")
-  end
+  def cover(assigns), do: base(assigns, @allowed_configuration_keys, "elc-cover")
 end

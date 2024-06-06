@@ -16,7 +16,5 @@ defmodule Phexel.Imposter do
 
   slot(:inner_block, required: true)
 
-  def imposter(assigns) do
-    base(assigns, @allowed_configuration_keys, "elc-imposter")
-  end
+  def imposter(assigns), do: base(assigns, @allowed_configuration_keys, "elc-imposter")
 end

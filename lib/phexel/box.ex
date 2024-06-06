@@ -16,7 +16,5 @@ defmodule Phexel.Box do
 
   slot(:inner_block, required: true)
 
-  def box(assigns) do
-    base(assigns, @allowed_configuration_keys, "elc-box")
-  end
+  def box(assigns), do: base(assigns, @allowed_configuration_keys, "elc-box")
 end

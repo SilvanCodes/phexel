@@ -14,7 +14,5 @@ defmodule Phexel.Center do
 
   slot(:inner_block, required: true)
 
-  def center(assigns) do
-    base(assigns, @allowed_configuration_keys, "elc-center")
-  end
+  def center(assigns), do: base(assigns, @allowed_configuration_keys, "elc-center")
 end

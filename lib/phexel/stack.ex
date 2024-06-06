@@ -16,7 +16,5 @@ defmodule Phexel.Stack do
 
   slot(:inner_block, required: true)
 
-  def stack(assigns) do
-    base(assigns, @allowed_configuration_keys, "elc-stack")
-  end
+  def stack(assigns), do: base(assigns, @allowed_configuration_keys, "elc-stack")
 end

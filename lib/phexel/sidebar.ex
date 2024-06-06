@@ -20,7 +20,5 @@ defmodule Phexel.Sidebar do
 
   slot(:inner_block, required: true)
 
-  def sidebar(assigns) do
-    base(assigns, @allowed_configuration_keys, "elc-sidebar")
-  end
+  def sidebar(assigns), do: base(assigns, @allowed_configuration_keys, "elc-sidebar")
 end

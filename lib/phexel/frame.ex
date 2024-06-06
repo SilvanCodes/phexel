@@ -16,7 +16,5 @@ defmodule Phexel.Frame do
 
   slot(:inner_block, required: true)
 
-  def frame(assigns) do
-    base(assigns, @allowed_configuration_keys, "elc-frame")
-  end
+  def frame(assigns), do: base(assigns, @allowed_configuration_keys, "elc-frame")
 end

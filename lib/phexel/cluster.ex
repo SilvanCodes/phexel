@@ -18,7 +18,5 @@ defmodule Phexel.Cluster do
 
   slot(:inner_block, required: true)
 
-  def cluster(assigns) do
-    base(assigns, @allowed_configuration_keys, "elc-cluster")
-  end
+  def cluster(assigns), do: base(assigns, @allowed_configuration_keys, "elc-cluster")
 end

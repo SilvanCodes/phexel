@@ -18,7 +18,5 @@ defmodule Phexel.Reel do
 
   slot(:inner_block, required: true)
 
-  def reel(assigns) do
-    base(assigns, @allowed_configuration_keys, "elc-reel")
-  end
+  def reel(assigns), do: base(assigns, @allowed_configuration_keys, "elc-reel")
 end

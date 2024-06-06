@@ -16,7 +16,5 @@ defmodule Phexel.Switcher do
 
   slot(:inner_block, required: true)
 
-  def switcher(assigns) do
-    base(assigns, @allowed_configuration_keys, "elc-switcher")
-  end
+  def switcher(assigns), do: base(assigns, @allowed_configuration_keys, "elc-switcher")
 end

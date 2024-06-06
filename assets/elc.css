@@ -273,3 +273,12 @@ img {
     width: 1ex;
     height: 1ex;
 }
+
+/* CONTAINER */
+/* Allows to use the respective element in container queries.
+ */
+.elc-container {
+    --container-name: containerNameNotSet;
+    container-name: var(--container-name);
+    container-type: inline-size;
+}

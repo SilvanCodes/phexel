@@ -16,7 +16,5 @@ defmodule Phexel.Grid do
 
   slot(:inner_block, required: true)
 
-  def grid(assigns) do
-    base(assigns, @allowed_configuration_keys, "elc-grid")
-  end
+  def grid(assigns), do: base(assigns, @allowed_configuration_keys, "elc-grid")
 end
