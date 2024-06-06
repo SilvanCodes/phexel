@@ -33,6 +33,7 @@ defmodule Phexel do
   defdelegate reel(assigns), to: Phexel.Reel
   defdelegate sidebar(assigns), to: Phexel.Sidebar
   defdelegate switcher(assigns), to: Phexel.Switcher
+  defdelegate container(assigns), to: Phexel.Container
 
   def build_configuration_style(assigns, keys) when is_list(keys) do
     [extract_configuration_styles(assigns, keys), extract_literal_styles(assigns)]

@@ -82,6 +82,7 @@ end
 | The Frame                                          | `<.frame>`        |
 | The Reel                                           | `<.reel>`         |
 | The Imposter                                       | `<.imposter>`     |
+| The Container                                      | `<.container>`    |
 | The Icon                                           | _Not implemented_ |
 
 Please refer to [Every Layout](https://every-layout.dev) if you want to learn more about when to use which component.
