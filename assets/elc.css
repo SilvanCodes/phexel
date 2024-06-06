@@ -126,9 +126,9 @@ img {
 
 /* FRAME-LAYOUT */
 .elc-frame {
-    --frame-n: 16;
-    --frame-d: 9;
-    aspect-ratio: var(--frame-n) / var(--frame-d);
+    --frame-width: 16;
+    --frame-height: 9;
+    aspect-ratio: var(--frame-width) / var(--frame-height);
     overflow: hidden;
     display: flex;
     justify-content: center;

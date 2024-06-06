@@ -5,12 +5,12 @@ defmodule Phexel.Frame do
   import Phexel, only: [base: 3]
 
   @allowed_configuration_keys [
-    :"frame-n",
-    :"frame-d"
+    :"frame-width",
+    :"frame-height"
   ]
 
-  attr(:"frame-n", :string)
-  attr(:"frame-d", :string)
+  attr(:"frame-width", :string)
+  attr(:"frame-height", :string)
   attr(:tag, :string, default: "div")
   attr(:rest, :global)
 
