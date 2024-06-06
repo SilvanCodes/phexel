@@ -6,6 +6,7 @@ defmodule Phexel do
 
   import Phoenix.Component, only: [sigil_H: 2, render_slot: 1, dynamic_tag: 1, assign: 2]
 
+  @spec base(map(), keyword(), String.t()) :: Phoenix.LiveView.Rendered.t()
   def base(assigns, allowed_configuration_keys, type) do
     assigns =
       assign(assigns,
@@ -34,6 +35,7 @@ defmodule Phexel do
   defdelegate sidebar(assigns), to: Phexel.Sidebar
   defdelegate switcher(assigns), to: Phexel.Switcher
   defdelegate container(assigns), to: Phexel.Container
+  defdelegate icon(assigns), to: Phexel.Icon
 
   def build_configuration_style(assigns, keys) when is_list(keys) do
     [extract_configuration_styles(assigns, keys), extract_literal_styles(assigns)]

@@ -54,9 +54,8 @@ defmodule Web.Component.TodoList do
           <% end %>
         </form>
         <button phx-click="add-todo">
-          <%# TODO: implement "The Icon" from Every Layout instead %>
           <.cluster>
-            <i class="fa-solid fa-square-plus"></i>
+            <.icon class="fa-solid fa-square-plus"></.icon>
             <span>Add Todo</span>
           </.cluster>
         </button>
@@ -69,20 +68,20 @@ end
 
 ## Components
 
-| [Every Layout](https://every-layout.dev) Component | Phexel Component  |
-| -------------------------------------------------- | ----------------- |
-| The Stack                                          | `<.stack>`        |
-| The Box                                            | `<.box>`          |
-| The Center                                         | `<.center>`       |
-| The Cluster                                        | `<.cluster>`      |
-| The Sidebar                                        | `<.sidebar>`      |
-| The Switcher                                       | `<.switcher>`     |
-| The Cover                                          | `<.cover>`        |
-| The Grid                                           | `<.grid>`         |
-| The Frame                                          | `<.frame>`        |
-| The Reel                                           | `<.reel>`         |
-| The Imposter                                       | `<.imposter>`     |
-| The Container                                      | `<.container>`    |
-| The Icon                                           | _Not implemented_ |
+| [Every Layout](https://every-layout.dev) Component | Phexel Component |
+| -------------------------------------------------- | ---------------- |
+| The Stack                                          | `<.stack>`       |
+| The Box                                            | `<.box>`         |
+| The Center                                         | `<.center>`      |
+| The Cluster                                        | `<.cluster>`     |
+| The Sidebar                                        | `<.sidebar>`     |
+| The Switcher                                       | `<.switcher>`    |
+| The Cover                                          | `<.cover>`       |
+| The Grid                                           | `<.grid>`        |
+| The Frame                                          | `<.frame>`       |
+| The Reel                                           | `<.reel>`        |
+| The Imposter                                       | `<.imposter>`    |
+| The Container                                      | `<.container>`   |
+| The Icon                                           | `<.icon>`        |
 
 Please refer to [Every Layout](https://every-layout.dev) if you want to learn more about when to use which component.
