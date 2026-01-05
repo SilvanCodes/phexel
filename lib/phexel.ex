@@ -17,7 +17,7 @@ defmodule Phexel do
       )
 
     ~H"""
-    <.dynamic_tag name={@tag} {@rest}>
+    <.dynamic_tag tag_name={@tag} {@rest}>
       <%= render_slot(@inner_block) %>
     </.dynamic_tag>
     """
