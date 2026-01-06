@@ -5,7 +5,7 @@ defmodule Phexel.MixProject do
     [
       app: :phexel,
       version: "0.1.0",
-      elixir: "~> 1.13",
+      elixir: "~> 1.18",
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
@@ -21,8 +21,8 @@ defmodule Phexel.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:phoenix_live_view, "~> 0.20"},
-      {:styler, "~> 1.0.0-rc.0", only: [:dev, :test], runtime: false}
+      {:phoenix_live_view, "~> 1.1"},
+      {:styler, "~> 1.10", only: [:dev, :test], runtime: false}
     ]
   end
 end
